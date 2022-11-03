@@ -8,9 +8,10 @@ const Casts = lazy(() => import('./cast/cast'));
 const Reviews = lazy(() => import('../components/reviews/reviews'));
 export const App = () => {
   return (
-    <BrowserRouter basename="/react-homework-template/">
+    <BrowserRouter basename="/goit-react-hw-05-movies">
       <Routes>
         <Route path="/" element={<SharedLayout />}>
+          <Route path="*" element={<Home />} />
           <Route index element={<Home />} />
           <Route path="movies" element={<Movies />}></Route>
           <Route path="movies/:movieId" element={<Movie />}>
