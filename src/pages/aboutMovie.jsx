@@ -8,6 +8,7 @@ const AboutMovie = () => {
   const [isLoad, setIsLoad] = useState(false);
   const { movieId } = useParams();
   const location = useLocation();
+  console.log(location);
   const bakLink = location.state?.from ?? '/';
   useEffect(() => {
     fetchFilm(movieId)
@@ -36,8 +37,12 @@ const AboutMovie = () => {
         genres.map(genre => {
           return <p key={genre.id}>{genre.name}</p>;
         })}
-      <NavLink to="cast">Cast</NavLink>
-      <NavLink to="reviews">Reviews</NavLink>
+      <NavLink to="cast" state={{ from: bakLink }}>
+        Cast
+      </NavLink>
+      <NavLink to="reviews" state={{ from: bakLink }}>
+        Reviews
+      </NavLink>
       <Outlet />
     </div>
   );
@@ -46,5 +51,4 @@ export default AboutMovie;
 AboutMovie.propTypes = {
   movie: PropTypes.string,
   isLoad: PropTypes.bool,
-  
 };

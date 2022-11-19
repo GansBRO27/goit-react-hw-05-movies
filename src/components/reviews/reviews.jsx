@@ -14,7 +14,6 @@ const Reviews = () => {
       .then(({ results }) => {
         setRevievs(results);
         setIsLoad(true);
-        console.log(results);
       });
   }, [movieId]);
 

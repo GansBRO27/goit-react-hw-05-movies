@@ -6,7 +6,7 @@ const Cast = () => {
   const [cast, setCast] = useState([]);
   const [isLoad, setIsLoad] = useState(false);
   const { movieId } = useParams();
-  console.log(movieId);
+
   useEffect(() => {
     fetchActors(movieId)
       .then(response => response.json())
